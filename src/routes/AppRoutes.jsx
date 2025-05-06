@@ -10,6 +10,7 @@ import { TrendingDestination } from '../pages/TrendingDestination';
 import { ScrollToTop } from './ScrollToTop';
 import { Profile } from '../pages/Profile';
 import { EditBooking } from '../pages/EditBooking';
+import { BackToTop } from '../components/BackToTop';
 
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
@@ -44,6 +45,7 @@ export function AppRoutes() {
       )}
 
       <ScrollToTop />
+      <BackToTop />
       <Routes>
         <Route path="/" element={<Layout setAuthChanged={setAuthChanged} />}>
           <Route
