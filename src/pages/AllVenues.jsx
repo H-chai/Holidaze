@@ -91,9 +91,9 @@ export function AllVenues({
 
         {meta && (
           <ReactPaginate
-            pageCount={meta.pageCount} // ページ数
-            onPageChange={handlePageChange} // ページ変更時の処理
-            containerClassName="pagination" // ページネーションのクラス
+            pageCount={meta.pageCount}
+            onPageChange={handlePageChange}
+            containerClassName="pagination"
             previousLabel="Previous"
             nextLabel="Next"
             breakLabel="..."
