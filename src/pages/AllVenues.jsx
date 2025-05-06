@@ -15,7 +15,7 @@ export function AllVenues({
   searchResults,
 }) {
   const [url, setUrl] = useState(
-    'https://v2.api.noroff.dev/holidaze/venues?limit=20&page=1'
+    'https://v2.api.noroff.dev/holidaze/venues?sortOrder=asc&limit=20&page=1'
   );
   const { data: venues, meta } = useApi(url, {
     method: 'GET',
