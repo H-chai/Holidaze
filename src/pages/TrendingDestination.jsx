@@ -21,7 +21,7 @@ export function TrendingDestination() {
         className=" bg-cover bg-center font-roboto"
       >
         <div className="bg-bg-black px-10 py-16 sm:px-24 lg:py-24 lg:px-32">
-          <h1 className="font-boska text-white text-[32px] mb-2 text-center font-bold lg:text-[40px] lg:text-left">
+          <h1 className="font-boska text-white text-[32px] text-center font-bold lg:text-[40px] lg:text-left">
             {capitalized(destination)}
           </h1>
         </div>
