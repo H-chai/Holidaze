@@ -56,7 +56,6 @@ export function ListVenue({ setListVenue }) {
   const [isError, setIsError] = useState(null);
 
   const onSubmit = async (data) => {
-    console.log(data);
     const token = sessionStorage.getItem('token');
     const apiKey = import.meta.env.VITE_API_KEY;
     const url = 'https://v2.api.noroff.dev/holidaze/venues';
