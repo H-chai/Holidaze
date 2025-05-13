@@ -6,6 +6,26 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useLogout } from '../../hooks/useLogout';
 
+/**
+ * AuthorizedMobileHeader - Navigation component for authenticated users (mobile view)
+ *
+ * This component displays a mobile-friendly navigation bar for logged-in users.
+ * It features a hamburger menu that toggles to reveal links such as "Venues",
+ * "List your property", "Your bookings", and the user profile. It also includes a logout button.
+ *
+ * The component handles menu toggle state internally using `useState`,
+ * and retrieves the username from `sessionStorage`.
+ *
+ * @component
+ * @example
+ * return (
+ *   <AuthorizedMobileHeader setAuthChanged={setAuthChanged} />
+ * );
+ *
+ * @param {Object} props - Component props
+ * @param {Function} props.setAuthChanged - Callback function to update authentication state after logout
+ */
+
 export function AuthorizedMobileHeader({ setAuthChanged }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const username = sessionStorage.getItem('username');

@@ -1,5 +1,19 @@
 import { Link } from 'react-router-dom';
 
+/**
+ * UnauthorizedDesktopHeader - Navigation component for unauthenticated users (desktop view)
+ *
+ * This component renders a navigation bar for users who are not logged in.
+ * It includes links to view venues, log in, and register.
+ * The "List your property" link also redirects to the login page.
+ *
+ * @component
+ * @example
+ * return (
+ *   <UnauthorizedDesktopHeader />
+ * );
+ */
+
 export function UnauthorizedDesktopHeader() {
   return (
     <nav>
