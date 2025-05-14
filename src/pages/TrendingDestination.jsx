@@ -20,7 +20,7 @@ import StarIcon from '@mui/icons-material/Star';
  */
 
 export function TrendingDestination() {
-  let { destination } = useParams();
+  const { destination } = useParams();
   const url = `https://v2.api.noroff.dev/holidaze/venues/search?q=${destination}`;
   const { data: venues } = useApi(url, {
     method: 'GET',

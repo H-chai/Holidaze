@@ -14,7 +14,7 @@ import { useState } from 'react';
  * @returns {JSX.Element} The rendered profile edit form. */
 
 export function EditProfile({ setShowEdit }) {
-  let { username } = useParams();
+  const { username } = useParams();
   const token = sessionStorage.getItem('token');
   const apiKey = import.meta.env.VITE_API_KEY;
   const url = `https://v2.api.noroff.dev/holidaze/profiles/${username}?_bookings=true&_venues=true`;

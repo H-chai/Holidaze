@@ -30,7 +30,7 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
  */
 
 export function EditBooking() {
-  let { id } = useParams();
+  const { id } = useParams();
   const token = sessionStorage.getItem('token');
   const username = sessionStorage.getItem('username');
   const apiKey = import.meta.env.VITE_API_KEY;

@@ -41,7 +41,7 @@ import { BookingDone } from './BookingDone';
  */
 
 export function Venue() {
-  let { id } = useParams();
+  const { id } = useParams();
   const url = `https://v2.api.noroff.dev/holidaze/venues/${id}?_owner=true&_bookings=true`;
   const { data: venue } = useApi(url, {
     method: 'GET',
