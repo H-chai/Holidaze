@@ -6,6 +6,19 @@ import AddIcon from '@mui/icons-material/Add';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
+/**
+ * ListVenue component - A form for listing a new venue with details like name, description, price, media, and amenities.
+ *
+ * This component includes a form that allows users to submit details about a venue, including its name, description,
+ * price, maximum guest capacity, location, media (images), and amenities (Wi-Fi, parking, breakfast, pets). The form uses
+ * validation with Yup to ensure the data is valid before submission.
+ *
+ * @param {Object} props - The props object.
+ * @param {function} props.setListVenue - A function to close the venue listing form.
+ *
+ * @returns {JSX.Element} The ListVenue component JSX.
+ */
+
 export function ListVenue({ setListVenue }) {
   const schema = yup
     .object({

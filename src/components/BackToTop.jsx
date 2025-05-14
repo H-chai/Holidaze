@@ -1,6 +1,20 @@
 import { useEffect, useState } from 'react';
 import ArrowUpwardOutlinedIcon from '@mui/icons-material/ArrowUpwardOutlined';
 
+/**
+ * BackToTop - A floating button that appears when the user scrolls down.
+ *
+ * This component displays a circular "Back to Top" button at the bottom-right of the screen.
+ * When clicked, it smoothly scrolls the page to the top. The button becomes visible after
+ * the user scrolls down more than 200px.
+ *
+ * @component
+ * @example
+ * return (
+ *   <BackToTop />
+ * );
+ */
+
 export function BackToTop() {
   const [isVisible, setIsVisible] = useState(false);
 

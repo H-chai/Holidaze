@@ -4,6 +4,23 @@ import { useState } from 'react';
 import { clearInput } from '../utils/clearInput';
 import { handleVenueSearch } from '../utils/handleVenueSearch';
 
+/**
+ * SearchForm - A form component for searching venues based on user input.
+ *
+ * This component includes input handling, basic validation, search triggering,
+ * and user feedback such as loading state, error messages, and no-result indicators.
+ *
+ * It interacts with a `handleVenueSearch` function (not shown here) to fetch and update search results.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Function} props.setSearchResults - Function to update the search results state in the parent component.
+ * @param {Function} props.setSearchText - Function to update the search keyword (used for displaying titles or re-use).
+ *
+ * @example
+ * <SearchForm setSearchResults={setResults} setSearchText={setQuery} />
+ */
+
 export function SearchForm({ setSearchResults, setSearchText }) {
   const [inputValue, setInputValue] = useState('');
   const [isLoading, setIsLoading] = useState(false);

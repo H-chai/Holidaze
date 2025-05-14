@@ -12,6 +12,19 @@ import { Profile } from '../pages/Profile';
 import { EditBooking } from '../pages/EditBooking';
 import { BackToTop } from '../components/BackToTop';
 
+/**
+ * AppRoutes component manages the main routing of the application, including loading states,
+ * navigation to different routes, and the management of search results and authentication changes.
+ * It also handles components like Home, Venue, AllVenues, TrendingDestination, and authentication-related routes.
+ *
+ * @component
+ * @example
+ * // Usage:
+ * <AppRoutes />
+ *
+ * @returns {JSX.Element} The rendered component with dynamic routes.
+ */
+
 export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();

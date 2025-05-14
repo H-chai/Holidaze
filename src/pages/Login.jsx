@@ -6,6 +6,21 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Holidaze.svg';
 
+/**
+ * Register component handles user registration.
+ *
+ * It validates the form inputs using react-hook-form and yup.
+ * On form submission, it sends the name, email, and password to the API for registration.
+ * On successful registration, the user is redirected to the login page.
+ * On failure, an error message is displayed.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Register />
+ * )
+ */
+
 export function Login({ setAuthChanged }) {
   const schema = yup
     .object({

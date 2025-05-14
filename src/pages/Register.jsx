@@ -6,6 +6,17 @@ import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import logo from '../assets/Holidaze.svg';
 
+/**
+ * Register component allows users to create a new account.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Register />
+ * )
+ * @param {Object} setAuthChanged - A function to handle changes in authentication state.
+ */
+
 export function Register() {
   const schema = yup
     .object({

@@ -26,6 +26,20 @@ import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspace
 import { getNights } from '../utils/dateUtils';
 import { BookingDone } from './BookingDone';
 
+/**
+ * Venue component handles the detailed view of a specific venue.
+ * It fetches venue details based on the venue ID from the URL and displays information about the venue,
+ * including images, description, owner details, location, available amenities, and booking options.
+ * It also handles booking functionality, where users can select dates and the number of guests, then submit a booking request.
+ *
+ * @component
+ * @example
+ * // Usage:
+ * <Venue />
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
+
 export function Venue() {
   let { id } = useParams();
   const url = `https://v2.api.noroff.dev/holidaze/venues/${id}?_owner=true&_bookings=true`;

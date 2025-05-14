@@ -15,6 +15,20 @@ import PetsOutlinedIcon from '@mui/icons-material/PetsOutlined';
 import { Link } from 'react-router-dom';
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 
+/**
+ * EditBooking - A component to display and edit booking details.
+ *
+ * This component fetches and displays booking details for a specific booking ID,
+ * allowing users to view the venue details, booking information, and the option to cancel the booking.
+ * It includes images of the venue, as well as other relevant details such as location, facilities, and host information.
+ * Users can also cancel the booking directly from this page.
+ *
+ * @returns {JSX.Element} The EditBooking component that shows booking details and allows the user to cancel the booking.
+ *
+ * @example
+ * <EditBooking />
+ */
+
 export function EditBooking() {
   let { id } = useParams();
   const token = sessionStorage.getItem('token');
