@@ -38,7 +38,7 @@ export function BookingDone({ setIsDone }) {
           }}
           className="absolute top-[10px] right-[16px] text-black cursor-pointer"
         >
-          <CloseIcon className="!w-5 !h-5" />
+          <CloseIcon className="!w-5 !h-5 cursor-pointer" />
         </button>
       </div>
     </div>

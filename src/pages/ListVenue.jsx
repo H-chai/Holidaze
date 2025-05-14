@@ -113,7 +113,7 @@ export function ListVenue({ setListVenue }) {
             }}
             className="absolute top-4 right-4 md:top-6 md:right-6"
           >
-            <CloseIcon className="!w-5 !h-5" />
+            <CloseIcon className="!w-5 !h-5 cursor-pointer" />
           </button>
           <form onSubmit={handleSubmit(onSubmit)} className="px-2 md:px-6">
             <input
