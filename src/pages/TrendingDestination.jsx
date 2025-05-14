@@ -4,6 +4,21 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import StarIcon from '@mui/icons-material/Star';
 
+/**
+ * TrendingDestination component displays a list of venues based on the destination query.
+ * It fetches venue data from the API based on the destination in the URL parameter.
+ * The destination is displayed as a background image and title at the top of the page.
+ * It lists the venues related to the destination, showing their name, location, rating, and price.
+ * Each venue is linked to its respective details page.
+ *
+ * @component
+ * @example
+ * // Usage:
+ * <TrendingDestination />
+ *
+ * @returns {JSX.Element} The rendered component.
+ */
+
 export function TrendingDestination() {
   let { destination } = useParams();
   const url = `https://v2.api.noroff.dev/holidaze/venues/search?q=${destination}`;

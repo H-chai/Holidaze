@@ -4,6 +4,23 @@ import MenuIcon from '@mui/icons-material/Menu';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { Link } from 'react-router-dom';
 
+/**
+ * UnauthorizedMobileHeader - Navigation component for unauthenticated users (mobile view)
+ *
+ * This component renders a mobile-friendly navigation menu for users who are not logged in.
+ * It includes a toggle hamburger menu that reveals navigation links such as:
+ * "Venues", "List your property", "Sign in", and "Register".
+ * The "List your property" and "Sign in" links both redirect to the login page.
+ *
+ * The component uses internal state to manage the visibility of the mobile menu.
+ *
+ * @component
+ * @example
+ * return (
+ *   <UnauthorizedMobileHeader />
+ * );
+ */
+
 export function UnauthorizedMobileHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 

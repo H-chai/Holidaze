@@ -10,6 +10,15 @@ import { EditProfile } from './EditProfile';
 import { useState } from 'react';
 import { ListVenue } from './ListVenue';
 
+/**
+ * Profile component displays the user's profile information, including their bookings and venues.
+ * It also allows the user to edit their profile or list new venues.
+ * The component fetches the profile data from the API using the provided `username` and renders the profile details.
+ * The user can also view and manage their bookings and venues, including creating new venues.
+ *
+ * @returns {JSX.Element} The Profile component UI, including user details, bookings, and venues.
+ */
+
 export function Profile() {
   let { username } = useParams();
   const token = sessionStorage.getItem('token');

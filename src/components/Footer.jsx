@@ -1,6 +1,22 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/Holidaze.svg';
 
+/**
+ * Footer - A site-wide footer component displaying navigation links and branding.
+ *
+ * This footer includes the Holidaze logo and grouped navigation links such as venues,
+ * profile-related pages, about/contact information, and legal links.
+ *
+ * It dynamically adjusts the destination of certain links based on user login status,
+ * using session storage (`token` and `username`) to determine if a user is logged in.
+ *
+ * @component
+ * @example
+ * return (
+ *   <Footer />
+ * );
+ */
+
 export function Footer() {
   const isLoggedIn = sessionStorage.getItem('token');
   const username = sessionStorage.getItem('username');

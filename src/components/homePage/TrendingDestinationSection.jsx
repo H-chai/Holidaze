@@ -1,5 +1,22 @@
 import { Link } from 'react-router-dom';
 
+/**
+ * TrendingDestinationSection - Displays a grid of popular destination links.
+ *
+ * This component visually highlights trending travel destinations as large square images
+ * overlaid with a title and gradient. Each destination is wrapped in a link that navigates
+ * to a filtered venue list for that location.
+ *
+ * The layout is responsive and optimized for both mobile and desktop views,
+ * with smooth hover animations for interactivity.
+ *
+ * @component
+ * @example
+ * return (
+ *   <TrendingDestinationSection />
+ * );
+ */
+
 export function TrendingDestinationSection() {
   return (
     <div className="px-4 pb-8 lg:pb-20 lg:px-32">

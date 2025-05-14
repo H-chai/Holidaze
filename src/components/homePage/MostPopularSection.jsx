@@ -4,6 +4,22 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
+/**
+ * MostPopularSection - Displays the most booked venues in a horizontal scrollable list.
+ *
+ * This component fetches venue data from the API, sorts it by the number of bookings,
+ * and displays the top four most booked venues in a responsive card layout.
+ *
+ * Each card includes a venue image, name, location, guest capacity, rating, and price.
+ * The layout is horizontally scrollable on smaller screens and grid-based on larger screens.
+ *
+ * @component
+ * @example
+ * return (
+ *   <MostPopularSection />
+ * );
+ */
+
 export function MostPopularSection() {
   const url = 'https://v2.api.noroff.dev/holidaze/venues';
   const { data: venues } = useApi(url, {

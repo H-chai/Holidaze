@@ -4,6 +4,22 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
+/**
+ * NewlyAddedSection - Displays the most recently created venues in a horizontal scrollable list.
+ *
+ * This component fetches the latest venue data from the API using the `sort=created` parameter,
+ * and displays the four most recently added venues in a responsive, card-based layout.
+ *
+ * Each venue card shows an image, name, location, guest capacity, rating, and price per night.
+ * The layout is horizontally scrollable on small screens and grid-based on larger screens.
+ *
+ * @component
+ * @example
+ * return (
+ *   <NewlyAddedSection />
+ * );
+ */
+
 export function NewlyAddedSection() {
   const url = 'https://v2.api.noroff.dev/holidaze/venues?sort=created';
   const { data: venues } = useApi(url, {

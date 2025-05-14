@@ -6,6 +6,13 @@ import { useApi } from '../hooks/useApi';
 import CloseIcon from '@mui/icons-material/Close';
 import { useState } from 'react';
 
+/**
+ * EditProfile component allows the user to edit their profile, including their bio and avatar image URL.
+ *
+ * @param {Object} props - The props object.
+ * @param {Function} props.setShowEdit - Function to toggle the visibility of the edit profile form.
+ * @returns {JSX.Element} The rendered profile edit form. */
+
 export function EditProfile({ setShowEdit }) {
   let { username } = useParams();
   const token = sessionStorage.getItem('token');

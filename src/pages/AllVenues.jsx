@@ -8,6 +8,29 @@ import ReactPaginate from 'react-paginate';
 import { SearchResultSection } from '../components/homePage/SearchResultSection';
 import { HeroSection } from '../components/homePage/heroSection';
 
+/**
+ * AllVenues - A component that fetches and displays a list of all venues.
+ *
+ * This component displays a paginated list of venues. It fetches the venue data from an API
+ * and allows users to navigate through the pages. The search functionality is integrated
+ * to filter the venue results based on user input.
+ *
+ * @param {Function} setSearchResults - A function to set the filtered search results.
+ * @param {Function} setSearchText - A function to update the search text.
+ * @param {string} searchText - The current text entered in the search bar.
+ * @param {Array} searchResults - The current list of venues filtered by the search text.
+ *
+ * @returns {JSX.Element} The AllVenues component which displays the list of venues and pagination.
+ *
+ * @example
+ * <AllVenues
+ *   setSearchResults={setSearchResults}
+ *   setSearchText={setSearchText}
+ *   searchText={searchText}
+ *   searchResults={searchResults}
+ * />
+ */
+
 export function AllVenues({
   setSearchResults,
   setSearchText,

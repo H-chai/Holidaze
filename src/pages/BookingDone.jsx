@@ -1,6 +1,20 @@
 import { Link } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 
+/**
+ * BookingDone - A component that displays a confirmation message after a booking is made.
+ *
+ * This component shows a pop-up message indicating that the booking has been successfully completed.
+ * It provides a link to manage bookings and allows the user to close the confirmation message.
+ *
+ * @param {Function} setIsDone - A function to update the state indicating whether the booking is completed or not.
+ *
+ * @returns {JSX.Element} The BookingDone component which displays a confirmation message with a link to manage bookings.
+ *
+ * @example
+ * <BookingDone setIsDone={setIsDone} />
+ */
+
 export function BookingDone({ setIsDone }) {
   const username = sessionStorage.getItem('username');
   return (
