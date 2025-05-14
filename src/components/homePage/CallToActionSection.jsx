@@ -1,6 +1,27 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
+/**
+ * CallToActionSection - Section that encourages users to explore venues and list their property
+ *
+ * This component renders two key call-to-action sections:
+ * - "Explore all venues" with a link to view all venues.
+ * - "List your property" which redirects the user to their profile page if logged in, or to the login page if not.
+ *
+ * The component tracks the user's login status using sessionStorage to display the correct links.
+ * - When the user is logged in, it shows their profile page under "List your property".
+ * - When the user is not logged in, it redirects to the login page instead.
+ *
+ * @component
+ * @example
+ * return (
+ *   <CallToActionSection authChanged={authChanged} />
+ * );
+ *
+ * @param {Object} props - Component props
+ * @param {boolean} props.authChanged - Boolean that indicates if the authentication state has changed
+ */
+
 export function CallToActionSection({ authChanged }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState('');

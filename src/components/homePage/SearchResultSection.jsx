@@ -3,6 +3,27 @@ import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
 
+/**
+ * SearchResultSection - Displays venue search results based on user input.
+ *
+ * This component renders a grid of venue cards that match the user's search query.
+ * It dynamically displays the number of search results for a given search term.
+ *
+ * Each card shows venue information such as name, location, guest capacity, rating,
+ * price, and an image. Cards are responsive and styled for hover effects.
+ *
+ * @component
+ * @param {Object[]} searchResults - An array of venue objects returned from the search API.
+ * @param {string} searchText - The search keyword used by the user.
+ * @example
+ * return (
+ *   <SearchResultSection
+ *     searchResults={filteredVenues}
+ *     searchText="Norway"
+ *   />
+ * );
+ */
+
 export function SearchResultSection({ searchResults, searchText }) {
   return (
     <div className="px-4 pt-8 text-black font-roboto lg:px-32 lg:pt-16">
