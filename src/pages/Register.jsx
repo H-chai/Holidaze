@@ -51,6 +51,7 @@ export function Register() {
       name: data.name,
       email: data.email,
       password: data.password,
+      venueManager: true,
     });
 
     const url = 'https://v2.api.noroff.dev/auth/register';
