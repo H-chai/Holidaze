@@ -55,7 +55,7 @@ export function Profile() {
           Edit
         </button>
         {showEdit && <EditProfile setShowEdit={setShowEdit} />}
-        <div className="flex items-center gap-2 mb-4">
+        <div className="flex items-center gap-2 mb-4 -mt-6">
           <img
             src={profile.avatar?.url}
             alt={profile.avatar?.alt}
@@ -65,7 +65,7 @@ export function Profile() {
         </div>
         <div className="flex mb-1">
           <p className="mr-1.5 font-medium">Email:</p>
-          <p>{profile.email}</p>
+          <p className="break-all">{profile.email}</p>
         </div>
         <div className="flex">
           <p className="mr-1.5 font-medium">Bio:</p>
@@ -165,10 +165,10 @@ export function Profile() {
           className="text-blue underline font-bold mr-0 ml-auto block cursor-pointer"
         >
           <AddIcon className="!w-4 !h-4 mr-0.5" />
-          List new venue
+          List venue
         </button>
         {listVenue && <ListVenue setListVenue={setListVenue} />}
-        <h1 className="text-xl font-bold mb-4">
+        <h1 className="text-xl font-bold mb-4 -mt-6">
           Your venues<span className="ml-1.5">({profile.venues?.length})</span>
         </h1>
         {profile.venues?.length > 0 ? (
