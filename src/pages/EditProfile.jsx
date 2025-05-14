@@ -93,12 +93,14 @@ export function EditProfile({ setShowEdit }) {
             type="text"
             {...register('bio')}
             defaultValue={profile.bio}
+            placeholder="Bio"
             className="border border-outline placeholder:text-sm py-3.5 px-4 rounded-[10px] w-full mb-4"
           />
           <input
             type="text"
             {...register('avatarUrl')}
             defaultValue={profile.avatar?.url}
+            placeholder="Avatar url"
             className="border border-outline placeholder:text-sm py-3.5 px-4 rounded-[10px] w-full mb-4"
           />
           <p className="text-error">{errors.avatarUrl?.message}</p>
@@ -106,6 +108,7 @@ export function EditProfile({ setShowEdit }) {
             type="text"
             {...register('avatarAlt')}
             defaultValue={profile.avatar?.alt}
+            placeholder="Alternative text for the avatar"
             className="border border-outline placeholder:text-sm py-3.5 px-4 rounded-[10px] w-full mb-4"
           />
           <button
