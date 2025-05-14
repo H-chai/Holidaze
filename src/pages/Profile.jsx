@@ -59,7 +59,7 @@ export function Profile() {
           <img
             src={profile.avatar?.url}
             alt={profile.avatar?.alt}
-            className="w-8 h-8 rounded-[50%]"
+            className="w-8 h-8 rounded-[50%] object-cover"
           />
           <h1 className="text-xl font-bold">{profile.name}</h1>
         </div>
