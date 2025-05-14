@@ -3,7 +3,7 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { SearchResultSection } from '../components/homePage/SearchResultSection';
 import { HeroSection } from '../components/homePage/heroSection';
@@ -40,6 +40,12 @@ export function AllVenues({
   const [url, setUrl] = useState(
     'https://v2.api.noroff.dev/holidaze/venues?sortOrder=asc&limit=20&page=1'
   );
+
+  useEffect(() => {
+    setSearchResults([]);
+    setSearchText('');
+  }, [setSearchResults, setSearchText]);
+
   const { data: venues, meta } = useApi(url, {
     method: 'GET',
   });
