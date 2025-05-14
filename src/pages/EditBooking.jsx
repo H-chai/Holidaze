@@ -223,7 +223,7 @@ export function EditBooking() {
           </p>
           <button
             onClick={deleteBooking}
-            className="mt-6 bg-error text-white w-full rounded-[8px] py-3 cursor-pointer font-medium disabled:cursor-not-allowed transition-all duration-300 hover:bg-white hover:text-error hover:border"
+            className="mt-6 bg-error text-white w-full rounded-[8px] py-3 cursor-pointer font-medium disabled:cursor-not-allowed transition-all duration-300 border hover:bg-white hover:text-error"
           >
             Cancel booking
           </button>

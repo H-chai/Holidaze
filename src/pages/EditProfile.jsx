@@ -113,7 +113,7 @@ export function EditProfile({ setShowEdit }) {
           />
           <button
             type="submit"
-            className="bg-blue text-white w-full rounded-[10px] py-3 cursor-pointer transition-all duration-300 hover:bg-white hover:text-blue hover:border md:py-4"
+            className="bg-blue text-white w-full rounded-[10px] py-3 cursor-pointer transition-all duration-300 border hover:bg-white hover:text-blue md:py-4"
           >
             Save
           </button>

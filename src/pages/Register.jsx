@@ -121,7 +121,7 @@ export function Register() {
         <button
           type="submit"
           disabled={isLoading}
-          className="text-center bg-blue text-white block w-full rounded-[10px] py-3.5 font-medium mt-4 cursor-pointer transition-all duration-300 hover:bg-white hover:text-blue hover:border"
+          className="text-center bg-blue text-white block w-full rounded-[10px] py-3.5 font-medium mt-4 cursor-pointer transition-all duration-300 border  hover:bg-white hover:text-blue"
         >
           {isLoading ? 'Sign up...' : 'Sign up'}
         </button>
