@@ -69,6 +69,9 @@ export function Register() {
       if (!response.ok) {
         setIsError(result.errors[0].message);
       } else {
+        alert(
+          `Registration successful!\nUsername: ${result.data.name}\nEmail: ${result.data.email}`
+        );
         navigate('/login');
       }
     } catch (error) {
