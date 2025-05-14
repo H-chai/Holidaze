@@ -128,11 +128,11 @@ export function EditBooking() {
           ))}
         </Carousel>
         <div className="flex gap-2 items-center justify-end mt-2">
-          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px]">
+          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px] cursor-pointer hover:underline">
             <ShareOutlinedIcon className="!w-4 !h-4 text-blue" />
             <p className="text-sm">Share</p>
           </button>
-          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px]">
+          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px] cursor-pointer hover:underline">
             <FavoriteBorderOutlinedIcon className="!w-4 !h-4 text-red-600" />
             <p className="text-sm">Save</p>
           </button>
