@@ -67,6 +67,7 @@ export function ListVenue({ setListVenue }) {
   });
 
   const [isError, setIsError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
   const onSubmit = async (data) => {
     const token = sessionStorage.getItem('token');
@@ -74,6 +75,7 @@ export function ListVenue({ setListVenue }) {
     const url = 'https://v2.api.noroff.dev/holidaze/venues';
     const body = JSON.stringify(data);
     try {
+      setIsLoading(true);
       const response = await fetch(url, {
         method: 'POST',
         headers: {
@@ -92,6 +94,8 @@ export function ListVenue({ setListVenue }) {
       }
     } catch (error) {
       setIsError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -239,9 +243,10 @@ export function ListVenue({ setListVenue }) {
             </label>
             <button
               type="submit"
+              disabled={isLoading}
               className="bg-blue text-white w-full rounded-[10px] py-3 mt-8 cursor-pointer transition-all duration-300 hover:bg-white hover:text-blue hover:border md:py-4"
             >
-              List new venue
+              {isLoading ? 'Listing...' : 'List new venue'}
             </button>
           </form>
           {isError && <p className="text-error mt-4 ml-2">{isError}</p>}
