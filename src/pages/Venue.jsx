@@ -25,6 +25,8 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import KeyboardBackspaceOutlinedIcon from '@mui/icons-material/KeyboardBackspaceOutlined';
 import { getNights } from '../utils/dateUtils';
 import { BookingDone } from './BookingDone';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import { EditVenue } from './EditVenue';
 
 /**
  * Venue component handles the detailed view of a specific venue.
@@ -42,9 +44,16 @@ import { BookingDone } from './BookingDone';
 
 export function Venue() {
   const { id } = useParams();
+  const username = sessionStorage.getItem('username');
   const url = `https://v2.api.noroff.dev/holidaze/venues/${id}?_owner=true&_bookings=true`;
   const { data: venue } = useApi(url, {
     method: 'GET',
+  });
+
+  const today = new Date();
+  const upcomingBookings = venue.bookings?.filter((booking) => {
+    const checkInDate = new Date(booking.dateFrom);
+    return checkInDate >= today;
   });
 
   const [guests, setGuests] = useState(1);
@@ -120,7 +129,7 @@ export function Venue() {
       if (response.ok) {
         setIsDone(true);
       } else {
-        setIsError(result.errors[0].message);
+        setIsError(result.errors[0].message || 'Booking failed.');
       }
     } catch (error) {
       setIsError(error.message);
@@ -177,9 +186,28 @@ export function Venue() {
     []
   );
 
+  const [showEdit, setShowEdit] = useState(false);
+  const isOwner = venue.owner?.name === username;
+
+  const editVenue = () => {
+    setShowEdit(true);
+  };
+
   return (
     <div className="overflow-hidden pt-4 font-roboto text-black">
       <div className="px-4 lg:px-32 xl:px-0 xl:max-w-[1120px] xl:mx-auto">
+        {isOwner ? (
+          <button
+            onClick={editVenue}
+            className=" bg-blue text-white w-fit rounded-[8px] py-3 px-4 mb-4 mr-0 ml-auto cursor-pointer disabled:cursor-not-allowed transition-all duration-300 flex items-center border hover:bg-white hover:text-blue "
+          >
+            <EditOutlinedIcon className="!w-5 !h-5 mr-1" />
+            Edit your venue
+          </button>
+        ) : (
+          ''
+        )}
+        {showEdit && <EditVenue setShowEdit={setShowEdit} />}
         <Carousel
           showThumbs={!isMobile}
           infiniteLoop={false}
@@ -198,18 +226,18 @@ export function Venue() {
           ))}
         </Carousel>
         <div className="flex gap-2 items-center justify-end mt-2">
-          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px]">
+          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px] cursor-pointer hover:underline">
             <ShareOutlinedIcon className="!w-4 !h-4 text-blue" />
             <p className="text-sm">Share</p>
           </button>
-          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px]">
+          <button className="flex items-center gap-0.5 border border-outline px-2 py-2.5 rounded-[50px] cursor-pointer hover:underline">
             <FavoriteBorderOutlinedIcon className="!w-4 !h-4 text-red-600" />
             <p className="text-sm">Save</p>
           </button>
         </div>
       </div>
-      <div className="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-20 md:mb-20 md:mt-5 md:items-start md:px-4 lg:gap-x-14 lg:px-32 lg:mb-32 lg:mt-8 xl:px-0 xl:max-w-[1120px] xl:mx-auto xl:grid-cols-8 xl:gap-x-20">
-        <div className="px-4 md:px-0 xl:col-start-1 xl:col-end-6">
+      <div className="md:grid md:grid-cols-8 md:gap-x-8 md:gap-y-20 md:mb-20 md:mt-5 md:items-start md:px-4 lg:gap-x-14 lg:px-32 lg:mb-32 lg:mt-8 xl:px-0 xl:max-w-[1120px] xl:mx-auto xl:gap-x-20">
+        <div className="px-4 md:px-0 md:col-start-1 md:col-end-6 xl:col-start-1 xl:col-end-6">
           <div className="flex items-end justify-between mt-3.5">
             <h1 className="text-xl font-bold break-words max-w-5/6">
               {venue.name}
@@ -258,7 +286,9 @@ export function Venue() {
           </div>
           <div className="py-6 border-t border-light-outline border-b mt-6">
             <h2 className="text-lg font-bold mb-1.5">About</h2>
-            <p className="text-sm leading-[1.5]">{venue.description}</p>
+            <p className="text-sm leading-[1.5] break-all">
+              {venue.description}
+            </p>
           </div>
           <div className="py-6 border-light-outline border-b">
             <h2 className="text-lg font-bold mb-1.5">Host</h2>
@@ -272,7 +302,7 @@ export function Venue() {
             </div>
           </div>
         </div>
-        <div className="shadow-box mt-8 mx-4 mb-12 rounded-[10px] px-4 py-6 md:mt-4 md:mb-4 md:mx-0 xl:col-start-6 xl:col-end-9">
+        <div className="shadow-box mt-8 mx-4 mb-12 rounded-[10px] px-4 py-6 md:mt-4 md:mb-4 md:mx-0 md:col-start-6 md:col-end-9 xl:col-start-6 xl:col-end-9">
           <div className="flex items-center gap-0.5 mb-6">
             <p className="text-xl font-bold">${venue.price}</p>
             <span className="text-xs text-outline">/ night</span>
@@ -333,7 +363,7 @@ export function Venue() {
             </div>
             <button
               type="submit"
-              className="mt-4 bg-blue text-white w-full rounded-[8px] py-3 cursor-pointer disabled:cursor-not-allowed transition-all duration-300 hover:bg-white hover:text-blue hover:border"
+              className="mt-4 bg-blue text-white w-full rounded-[8px] py-3 cursor-pointer disabled:cursor-not-allowed transition-all duration-300 border hover:bg-white hover:text-blue "
               disabled={!isLoggedIn}
             >
               Book
@@ -378,6 +408,51 @@ export function Venue() {
             )}
           </div>
         </div>
+        {isOwner ? (
+          <div className="px-4 mb-12 md:mb-4 lg:px-32 md:col-start-1 md:col-end-9 xl:px-0 xl:max-w-[1120px]">
+            <h2 className="text-lg font-bold mb-1.5">Upcoming bookings</h2>
+            {upcomingBookings.map((booking) => (
+              <div
+                key={booking.id}
+                className="border-light-outline border-b py-4"
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <img
+                    src={booking.customer?.avatar?.url}
+                    alt={booking.customer?.avatar?.alt}
+                    className="w-6 h-6 rounded-[50%] object-cover"
+                  />
+                  <p className="text-sm">{booking.customer?.name}</p>
+                </div>
+                <div className="flex items-center gap-4">
+                  <p className="text-sm font-medium mb-0.5">
+                    Check in:
+                    <span className="text-base ml-1.5 font-normal">
+                      {new Date(booking.dateFrom).toLocaleDateString('de-DE')}
+                    </span>
+                  </p>
+                  <p className="text-sm font-medium mb-0.5">
+                    Checkout:
+                    <span className="text-base ml-1.5 font-normal">
+                      {new Date(booking.dateTo).toLocaleDateString('de-DE')}
+                    </span>
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium mb-0.5">
+                    Guests:{' '}
+                    <span className="text-base ml-1.5 font-normal">
+                      {booking.guests}
+                    </span>
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          ''
+        )}
+
         <Link
           to="/"
           className="underline text-sm ml-4 mb-20 block md:ml-0 md:mb-0 whitespace-nowrap"
