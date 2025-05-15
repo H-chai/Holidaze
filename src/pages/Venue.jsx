@@ -29,17 +29,24 @@ import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { EditVenue } from './EditVenue';
 
 /**
- * Venue component handles the detailed view of a specific venue.
- * It fetches venue details based on the venue ID from the URL and displays information about the venue,
- * including images, description, owner details, location, available amenities, and booking options.
- * It also handles booking functionality, where users can select dates and the number of guests, then submit a booking request.
+ * The `Venue` component displays detailed information about a specific venue,
+ * including images, description, location, amenities, price, and upcoming bookings.
+ *
+ * It also allows users to make bookings by selecting a date range and number of guests,
+ * while preventing overlap with existing bookings. Venue owners can edit the venue if they are logged in.
+ *
+ * Features:
+ * - Fetches venue data by ID from URL parameters
+ * - Displays media carousel, amenities, host info, and price
+ * - Date range picker excludes already booked dates
+ * - Authenticated users can book a venue
+ * - Owners can view upcoming bookings and edit venue details
  *
  * @component
  * @example
- * // Usage:
- * <Venue />
+ * return <Venue />;
  *
- * @returns {JSX.Element} The rendered component.
+ * @returns {JSX.Element} The rendered venue detail view
  */
 
 export function Venue() {
@@ -58,6 +65,10 @@ export function Venue() {
 
   const [guests, setGuests] = useState(1);
 
+  /**
+   * Handles increase in number of guests.
+   * Prevents exceeding `venue.maxGuests`.
+   */
   const handleIncrease = () => {
     if (guests < venue.maxGuests) {
       const updated = guests + 1;
@@ -65,7 +76,6 @@ export function Venue() {
       setValue('Guests', updated);
     }
   };
-
   const handleDecrease = () => {
     if (guests > 1) {
       const updated = guests - 1;
@@ -104,6 +114,15 @@ export function Venue() {
   const isLoggedIn = sessionStorage.getItem('token');
   const [isError, setIsError] = useState(null);
   const [isDone, setIsDone] = useState(false);
+
+  /**
+   * Handles booking form submission.
+   * Sends booking request with selected date range and number of guests.
+   *
+   * @param {Object} data - Booking form data
+   * @param {Date[]} data.dateRange - Selected check-in and check-out dates
+   * @param {number} data.guests - Number of guests
+   */
   async function handleBooking(data) {
     const url = 'https://v2.api.noroff.dev/holidaze/bookings';
     const body = JSON.stringify({
@@ -146,6 +165,12 @@ export function Venue() {
     }
   }, [watchDateRange]);
 
+  /**
+   * Returns formatted date string for display.
+   *
+   * @param {Date} date - The date to format
+   * @returns {string} A formatted date string (e.g., "14 May")
+   */
   const formatDate = (date) => {
     return date?.toLocaleDateString('en-US', {
       day: '2-digit',
@@ -155,6 +180,10 @@ export function Venue() {
 
   const [imageList, setImageList] = useState([]);
 
+  /**
+   * Updates `imageList` from venue media.
+   * Falls back to a default image if URL is missing.
+   */
   useEffect(() => {
     if (venue?.media && venue.media.length > 0) {
       const images = venue.media.map((media) => ({
@@ -165,6 +194,10 @@ export function Venue() {
     }
   }, [venue]);
 
+  /**
+   * Filters out invalid or broken images from `imageList`.
+   * @param {number} indexToRemove - Index of the image to remove
+   */
   const handleImageError = (indexToRemove) => {
     setImageList((prevImages) =>
       prevImages.filter((_, index) => index !== indexToRemove)
