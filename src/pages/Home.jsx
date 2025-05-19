@@ -40,6 +40,7 @@ export function Home({
         <SearchResultSection
           searchResults={searchResults}
           searchText={searchText}
+          setSearchResults={setSearchResults}
         />
       )}
       <NewlyAddedSection />
