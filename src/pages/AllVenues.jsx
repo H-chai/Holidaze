@@ -6,7 +6,7 @@ import StarIcon from '@mui/icons-material/Star';
 import { useState, useEffect } from 'react';
 import ReactPaginate from 'react-paginate';
 import { SearchResultSection } from '../components/homePage/SearchResultSection';
-import { HeroSection } from '../components/homePage/heroSection';
+import { HeroSection } from '../components/homePage/HeroSection';
 
 /**
  * AllVenues - A component that fetches and displays a list of all venues.
