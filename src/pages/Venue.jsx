@@ -232,9 +232,9 @@ export function Venue() {
         {isOwner ? (
           <button
             onClick={editVenue}
-            className=" bg-blue text-white w-fit rounded-[8px] py-3 px-4 mb-4 mr-0 ml-auto cursor-pointer disabled:cursor-not-allowed transition-all duration-300 flex items-center border hover:bg-white hover:text-blue "
+            className="text-sm bg-blue text-white w-fit rounded-[8px]   py-2 px-4 mb-4 mr-0 ml-auto cursor-pointer disabled:cursor-not-allowed transition-all duration-300 flex items-center border lg:text-base lg:py-3 hover:bg-white hover:text-blue "
           >
-            <EditOutlinedIcon className="!w-5 !h-5 mr-1" />
+            <EditOutlinedIcon className="!w-4 !h-4 lg:!w-5 lg:!h-5 mr-1" />
             Edit your venue
           </button>
         ) : (
