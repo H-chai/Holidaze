@@ -42,7 +42,7 @@ export function CallToActionSection({ authChanged }) {
           className="block rounded-[10px] group overflow-hidden"
         >
           <img
-            src="public/allVenues.jpg"
+            src="allVenues.jpg"
             alt="View all venues"
             className="rounded-[10px] aspect-[21/9] object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />
@@ -55,7 +55,7 @@ export function CallToActionSection({ authChanged }) {
           to={isLoggedIn ? `/profile/${username}` : '/login'}
         >
           <img
-            src="public/property.jpg"
+            src="property.jpg"
             alt="To your profile page"
             className="rounded-[10px] aspect-[21/9] object-cover object-center transition-transform duration-700 group-hover:scale-105"
           />

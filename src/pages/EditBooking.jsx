@@ -50,7 +50,7 @@ export function EditBooking() {
   useEffect(() => {
     if (booking.venue?.media && booking.venue.media.length > 0) {
       const images = booking.venue.media.map((media) => ({
-        url: media.url || 'public/noImage.jpg',
+        url: media.url || 'noImage.jpg',
         alt: media.alt,
       }));
       setImageList(images);

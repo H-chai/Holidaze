@@ -24,7 +24,7 @@ export function TrendingDestinationSection() {
       <ul className="grid grid-cols-2 grid-rows-2 gap-2 md:grid-cols-4 md:grid-rows-none lg:gap-3">
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
-            src="public/norway.jpg"
+            src="norway.jpg"
             alt="destination - norway"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
@@ -39,7 +39,7 @@ export function TrendingDestinationSection() {
         </li>
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
-            src="public/japan.jpg"
+            src="japan.jpg"
             alt="destination - japan"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
@@ -54,7 +54,7 @@ export function TrendingDestinationSection() {
         </li>
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
-            src="public/spain.jpg"
+            src="spain.jpg"
             alt="destination - spain"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
@@ -69,7 +69,7 @@ export function TrendingDestinationSection() {
         </li>
         <li className="rounded-[10px] aspect-square relative group overflow-hidden">
           <img
-            src="public/thailand.jpg"
+            src="thailand.jpg"
             alt="destination - thailand"
             className="aspect-square absolute top-0 right-0 bottom-0 left-0 object-cover transition-transform duration-700 group-hover:scale-105"
           />
