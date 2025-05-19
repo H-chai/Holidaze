@@ -7,6 +7,21 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState, useEffect } from 'react';
 import AddIcon from '@mui/icons-material/Add';
 
+/**
+ * EditVenue component allows a user to edit details of a specific venue.
+ * It fetches the venue by ID, displays a form pre-filled with its current data,
+ * and allows submitting updates via PUT request to the API.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Function} props.setShowEdit - Function to toggle the visibility of the edit modal.
+ *
+ * @returns {JSX.Element} The modal form component for editing a venue.
+ *
+ * @example
+ * <EditVenue setShowEdit={setShowEdit} />
+ */
+
 export function EditVenue({ setShowEdit }) {
   const { id } = useParams();
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -14,6 +29,11 @@ export function EditVenue({ setShowEdit }) {
   const { data: venue } = useApi(url, {
     method: 'GET',
   });
+
+  /**
+   * Validation schema using Yup to ensure proper input for the venue form.
+   * Fields include name, description, price, maxGuests, location, media, and meta (facilities).
+   */
 
   const schema = yup
     .object({
@@ -69,6 +89,11 @@ export function EditVenue({ setShowEdit }) {
     },
   });
 
+  /**
+   * Effect to reset form values when venue data is available.
+   * Pre-fills the form with current venue data for editing.
+   */
+
   useEffect(() => {
     if (venue) {
       reset({
@@ -90,6 +115,14 @@ export function EditVenue({ setShowEdit }) {
       });
     }
   }, [venue, reset]);
+
+  /**
+   * Handles form submission by sending updated venue data to the API.
+   * If successful, closes the edit modal and reloads the page.
+   *
+   * @async
+   * @param {Object} data - The validated form data.
+   */
 
   const onSubmit = async (data) => {
     const token = sessionStorage.getItem('token');
