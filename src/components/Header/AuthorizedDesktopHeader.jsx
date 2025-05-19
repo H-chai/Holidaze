@@ -25,11 +25,11 @@ export function AuthorizedDesktopHeader({ setAuthChanged }) {
   const logout = useLogout(setAuthChanged);
   return (
     <nav>
-      <ul className="flex gap-10">
+      <ul className="flex text-sm gap-8 xl:gap-10 xl:text-base">
         <li>
           <Link
             to="/allVenues"
-            className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
+            className="relative whitespace-nowrap after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
           >
             Venues
           </Link>
@@ -37,7 +37,7 @@ export function AuthorizedDesktopHeader({ setAuthChanged }) {
         <li>
           <Link
             to={`/profile/${username}`}
-            className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
+            className="relative whitespace-nowrap after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
           >
             List your property
           </Link>
@@ -45,13 +45,16 @@ export function AuthorizedDesktopHeader({ setAuthChanged }) {
         <li>
           <Link
             to={`/profile/${username}`}
-            className="relative after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
+            className="relative whitespace-nowrap after:absolute after:content-[] after:w-full after:h-[1px] after:bg-black after:bottom-[-4px] after:left-0 after:transform-[scale(0,1)] after:origin-top-left after:transition-transform after:duration-300 hover:after:transform-[scale(1,1)]"
           >
             Your bookings
           </Link>
         </li>
         <li className="transition-colors duration-300 hover:text-orange">
-          <Link to={`/profile/${username}`} className="flex items-center">
+          <Link
+            to={`/profile/${username}`}
+            className="flex items-center whitespace-nowrap "
+          >
             <PermIdentityIcon className="!w-5 mr-1" />
             {username}
           </Link>
