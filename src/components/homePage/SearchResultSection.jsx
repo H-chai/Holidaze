@@ -2,6 +2,7 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import HotelOutlinedIcon from '@mui/icons-material/HotelOutlined';
 import { Link } from 'react-router-dom';
 import StarIcon from '@mui/icons-material/Star';
+import { clearInput } from '../../utils/clearInput';
 
 /**
  * SearchResultSection - Displays venue search results based on user input.
@@ -24,11 +25,23 @@ import StarIcon from '@mui/icons-material/Star';
  * );
  */
 
-export function SearchResultSection({ searchResults, searchText }) {
+export function SearchResultSection({
+  searchResults,
+  searchText,
+  setSearchResults,
+}) {
   return (
     <div className="px-4 pt-8 text-black font-roboto lg:px-32 lg:pt-16">
       <h1 className="text-xl font-bold mb-4">
-        Search results for "{searchText}"
+        Search results for "{searchText}"{' '}
+        <button
+          className="text-base text-blue font-normal underline ml-2 cursor-pointer"
+          onClick={() => {
+            setSearchResults([]);
+          }}
+        >
+          Clear search
+        </button>
       </h1>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:grid-cols-4 lg:gap-3">
         {searchResults.map((venue, index) => (
