@@ -31,7 +31,7 @@ export function TrendingDestination() {
     <div>
       <div
         style={{
-          backgroundImage: `url(/public/${destination}.jpg)`,
+          backgroundImage: `url(${destination}.jpg)`,
         }}
         className="bg-cover bg-center font-roboto"
       >
