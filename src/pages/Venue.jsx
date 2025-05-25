@@ -442,7 +442,7 @@ export function Venue() {
           </div>
         </div>
         {isOwner ? (
-          <div className="px-4 mb-12 md:mb-4 lg:px-32 md:col-start-1 md:col-end-9 xl:px-0 xl:max-w-[1120px]">
+          <div className="px-4 mb-12 md:mb-4 md:col-start-1 md:col-end-9 lg:px-0 xl:max-w-[1120px]">
             <h2 className="text-lg font-bold mb-1.5">Upcoming bookings</h2>
             {upcomingBookings.map((booking) => (
               <div
